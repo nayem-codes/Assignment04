@@ -9,8 +9,9 @@ let rejectionCount = document.getElementById("rejection-count");
 const allFilterBtn = document.getElementById("all-filter-btn");
 const interviewFilterBtn = document.getElementById("interview-filter-btn");
 const rejectionFilterBtn = document.getElementById("rejection-filter-btn");
-const filteredSection = document.getElementById("filtered-section");
 
+const cardsContainer = document.getElementById("cards-container");
+const filteredSection = document.getElementById("filtered-section");
 const allCardsSection = document.getElementById("all-cards");
 
 // get counts
@@ -54,7 +55,7 @@ function toggleStyle(id) {
     }
 }
 
-allCardsSection.addEventListener('click', function (event) {
+cardsContainer.addEventListener('click', function (event) {
 
     if (event.target.classList.contains('interview-btn')) {
         const parentNode = event.target.parentNode.parentNode.parentNode;
