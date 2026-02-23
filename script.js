@@ -77,8 +77,7 @@ allCardsSection.addEventListener('click', function (event) {
             interviewList.push(cardInfo);
         }
 
-        renderInterview()
-        console.log(cardInfo)
+        renderInterview();
     }
 })
 
@@ -94,7 +93,7 @@ function renderInterview() {
                     <h2 class="company-name font-semibold text-lg">${interview.companyName}</h2>
                     <p class="role text-gray-600">${interview.role}</p>
                     <p class="type text-sm text-gray-600 my-4">${interview.type}</p>
-                    <p class="status bg-sky-100 px-3 py-2 rounded inline-block font-medium text-sm">${interview.status}</p>
+                    <p class="status bg-green-100 border-1 border-green-600 text-gray-600 px-3 py-2 rounded inline-block font-medium text-sm">INTERVIEW</p>
                     <p class="note text-gray-700 mt-1 mb-4">${interview.note}</p>
                     <div class="flex gap-2">
                         <button
