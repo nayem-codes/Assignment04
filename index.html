@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Tracker</title>
 
-    <!-- Tailwind + Daisy Ui -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- font Awesome -->
@@ -30,12 +30,12 @@
 
             <div class="bg-white p-5 rounded-lg">
                 <p>Interview</p>
-                <p id="interviewCount" class="text-green-600 font-bold text-2xl">0</p>
+                <p id="interview-count" class="text-green-600 font-bold text-2xl">0</p>
             </div>
 
             <div class="bg-white p-5 rounded-lg">
                 <p>Rejected</p>
-                <p id="rejectionCount" class="text-red-600 font-bold text-2xl">0</p>
+                <p id="rejection-count" class="text-red-600 font-bold text-2xl">0</p>
             </div>
         </section>
     </header>
@@ -44,9 +44,19 @@
         <h1 class="font-bold text-2xl">Available Jobs</h1>
 
         <section class="pt-6 flex gap-2">
-            <button id="all-filter-btn" class="bg-blue-500 text-white px-3 py-2 text-sm w-20 rounded active:scale-95">All</button>
-            <button id="interview-filter-btn" class="bg-white px-3 py-2 text-sm w-20 rounded active:scale-95">Interview</button>
-            <button id="rejected-filter-btn" class="bg-white px-3 py-2 text-sm w-20 rounded active:scale-95">Rejected</button>
+            <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="bg-blue-500 text-white px-3 py-2 text-sm w-20 rounded active:scale-95">All</button>
+            <button onclick="toggleStyle('interview-filter-btn')" id="interview-filter-btn" class="bg-white px-3 py-2 text-sm w-20 rounded active:scale-95">Interview</button>
+            <button onclick="toggleStyle('rejection-filter-btn')" id="rejection-filter-btn" class="bg-white px-3 py-2 text-sm w-20 rounded active:scale-95">Rejected</button>
+        </section>
+
+        <!-- Filtered Card -->
+
+        <section id="filtered-section" class="hidden">
+             <section class="max-w-6xl mx-auto px-10 py-12 rounded-lg bg-white flex flex-col items-center justify-center mt-4">
+                <img src="./jobs.png" alt="">
+                <h1 class="font-semibold text-2xl mt-4">No jobs available</h1>
+                <p class="text-gray-600">Check back soon for new job opportunities</p>
+            </section>
         </section>
 
         <section id="all-cards">
@@ -56,15 +66,15 @@
                 <div class="left">
                     <h2 class="company-name font-semibold text-lg">Mobile First Corp</h2>
                     <p class="role text-gray-600">React Native Developer</p>
-                    <p class="text-sm text-gray-600 my-4">Remote • Full-time • $130,000 - $175,000</p>
+                    <p class="type text-sm text-gray-600 my-4">Remote • Full-time • $130,000 - $175,000</p>
                     <p class="status bg-sky-100 px-3 py-2 rounded inline-block font-medium text-sm">NOT APPLIED</p>
                     <p class="note text-gray-700 mt-1 mb-4">Build cross-platform mobile applications using React Native. Work on products used
                         by millions of users worldwide.</p>
                     <div class="flex gap-2">
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
+                            class="interview-btn bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
+                            class="rejection-btn bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
                     </div>
                 </div>
 
@@ -78,14 +88,14 @@
                 <div class="left">
                     <h2 class="company-name font-semibold text-lg">WebFlow Agency</h2>
                     <p class="role text-gray-600">Web Designer & Developer</p>
-                    <p class="text-sm text-gray-600 my-4">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                    <p class="type text-sm text-gray-600 my-4">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
                     <p class="status bg-sky-100 px-3 py-2 rounded inline-block font-medium text-sm">NOT APPLIED</p>
                     <p class="note text-gray-700 mt-1 mb-4">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
                     <div class="flex gap-2">
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
+                            class="interview-btn bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
+                            class="rejection-btn bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
                     </div>
                 </div>
 
@@ -99,14 +109,14 @@
                 <div class="left">
                     <h2 class="company-name font-semibold text-lg">DataViz Solutions</h2>
                     <p class="role text-gray-600">Data Visualization Specialist</p>
-                    <p class="text-sm text-gray-600 my-4">Boston, MA • Full-time • $125,000 - $165,000</p>
+                    <p class="type text-sm text-gray-600 my-4">Boston, MA • Full-time • $125,000 - $165,000</p>
                     <p class="status bg-sky-100 px-3 py-2 rounded inline-block font-medium text-sm">NOT APPLIED</p>
                     <p class="note text-gray-700 mt-1 mb-4">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
                     <div class="flex gap-2">
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
+                            class="interview-btn bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
+                            class="rejection-btn bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
                     </div>
                 </div>
 
@@ -115,9 +125,12 @@
                 </div>
             </section>
 
+            
+
         </section>
     </main>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
