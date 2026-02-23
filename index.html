@@ -44,14 +44,14 @@
         <h1 class="font-bold text-2xl">Available Jobs</h1>
 
         <section class="pt-6 flex gap-2">
-            <button id="all-filter-btn" class="bg-blue-500 text-white px-3 py-2 text-sm w-20 rounded">All</button>
-            <button id="interview-filter-btn" class="bg-white px-3 py-2 text-sm w-20 rounded">Interview</button>
-            <button id="rejected-filter-btn" class="bg-white px-3 py-2 text-sm w-20 rounded">Rejected</button>
+            <button id="all-filter-btn" class="bg-blue-500 text-white px-3 py-2 text-sm w-20 rounded active:scale-95">All</button>
+            <button id="interview-filter-btn" class="bg-white px-3 py-2 text-sm w-20 rounded active:scale-95">Interview</button>
+            <button id="rejected-filter-btn" class="bg-white px-3 py-2 text-sm w-20 rounded active:scale-95">Rejected</button>
         </section>
 
-        <section id="all-cards" class="bg-white my-4 p-6 rounded-lg">
+        <section id="all-cards">
 
-            <section class="card flex justify-between">
+            <section class="card bg-white my-4 p-6 rounded-lg flex justify-between "> 
 
                 <div class="left">
                     <h2 class="company-name font-semibold text-lg">Mobile First Corp</h2>
@@ -62,14 +62,56 @@
                         by millions of users worldwide.</p>
                     <div class="flex gap-2">
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600">Interview</button>
+                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600">Rejected</button>
+                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
                     </div>
                 </div>
 
                 <div class="right">
-                    <button><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="border-gray-300 border-1 p-1 rounded-full cursor-pointer active:scale-95"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </section>
+
+            <section class="card bg-white my-4 p-6 rounded-lg flex justify-between"> 
+
+                <div class="left">
+                    <h2 class="company-name font-semibold text-lg">WebFlow Agency</h2>
+                    <p class="role text-gray-600">Web Designer & Developer</p>
+                    <p class="text-sm text-gray-600 my-4">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                    <p class="status bg-sky-100 px-3 py-2 rounded inline-block font-medium text-sm">NOT APPLIED</p>
+                    <p class="note text-gray-700 mt-1 mb-4">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                    <div class="flex gap-2">
+                        <button
+                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
+                        <button
+                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <button class="border-gray-300 border-1 p-1 rounded-full cursor-pointer active:scale-95"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </section>
+
+            <section class="card bg-white my-4 p-6 rounded-lg flex justify-between"> 
+
+                <div class="left">
+                    <h2 class="company-name font-semibold text-lg">DataViz Solutions</h2>
+                    <p class="role text-gray-600">Data Visualization Specialist</p>
+                    <p class="text-sm text-gray-600 my-4">Boston, MA • Full-time • $125,000 - $165,000</p>
+                    <p class="status bg-sky-100 px-3 py-2 rounded inline-block font-medium text-sm">NOT APPLIED</p>
+                    <p class="note text-gray-700 mt-1 mb-4">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
+                    <div class="flex gap-2">
+                        <button
+                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
+                        <button
+                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <button class="border-gray-300 border-1 p-1 rounded-full cursor-pointer active:scale-95"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
             </section>
 
