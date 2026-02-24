@@ -1,0 +1,5 @@
+1. getElementById selects one element by id, returns a single element. getElementByClassName() selects elements by class name, returns htmlCollection. querySelector() selects first element of matching id or class or tag, returns single element. querySelectorAll() Selects all matching elements, returns nodeList, can be applied forEach() loop.
+We can create a new element by using createElement(). Then add content to it. Finally we can insert it by useing appendChild method.
+An event starts from the target element and bubbles upward through its parent elements.
+Attaching one event listener to a parent instead of multiple listeners on child elements. it is useful because it can dynamically add elements, make the code cleaner.
+preventDefault() : Stops the default browser behavior. stopPropagation() : Stops the event from bubbling up
