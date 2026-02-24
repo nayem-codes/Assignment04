@@ -50,7 +50,7 @@ function calculateCount() {
     totalCount.innerText = allCardsSection.children.length;
 }
 
-
+calculateCount();
 function toggleStyle(id) {
     allFilterBtn.classList.remove('bg-blue-500', 'text-white');
     interviewFilterBtn.classList.remove('bg-blue-500', 'text-white');
@@ -293,3 +293,8 @@ cardsContainer.addEventListener('click', function (event) {
         checkEmpty();
     }
 })
+
+// why the total is not showing when page is refreshed? because the total count is calculated based on the number of cards in the allCardsSection, and when the page is refreshed, the allCardsSection is empty until the cards are rendered again. To fix this issue, you can call the calculateCount function after rendering the cards in the allCardsSection. This way, the total count will be updated correctly when the page is refreshed.
+// window.addEventListener('load', function () {
+//     calculateCount();
+// })
