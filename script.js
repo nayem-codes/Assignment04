@@ -56,10 +56,11 @@ function toggleStyle(id) {
 }
 
 cardsContainer.addEventListener('click', function (event) {
-
+    
     if (event.target.classList.contains('interview-btn')) {
         const parentNode = event.target.parentNode.parentNode.parentNode;
 
+        console.log(event.target.parentNode.parentNode.parentNode)
         const companyName = parentNode.querySelector('.company-name').innerText;
         const role = parentNode.querySelector('.role').innerText;
         const type = parentNode.querySelector('.type').innerText;
@@ -67,7 +68,7 @@ cardsContainer.addEventListener('click', function (event) {
         const note = parentNode.querySelector('.note').innerText;
 
         parentNode.querySelector('.status').innerText = "INTERVIEW";
-        parentNode.querySelector('.status').classList.remove('bg-sky-100');
+        parentNode.querySelector('.status').classList.remove('bg-sky-100', 'bg-red-100', 'border-red-600', 'text-red-600');
         parentNode.querySelector('.status').classList.add('bg-green-100', 'border-1', 'border-green-600', 'text-green-600');
 
         const cardInfo = {
@@ -92,6 +93,7 @@ cardsContainer.addEventListener('click', function (event) {
         if (currentStatus == "rejection-filter-btn") {
             renderReject();
         }
+        // renderInterview();
 
     }
     else if (event.target.classList.contains('rejection-btn')) {
@@ -117,7 +119,6 @@ cardsContainer.addEventListener('click', function (event) {
 
         const jobExist = rejectionList.find(item => item.companyName == cardInfo.companyName);
 
-
         if (!jobExist) {
             rejectionList.push(cardInfo);
         }
@@ -125,15 +126,15 @@ cardsContainer.addEventListener('click', function (event) {
         interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName);
 
         calculateCount();
-        
 
         if (currentStatus == "interview-filter-btn") {
             renderInterview();
         }
-
-        
+        // renderReject();
     }
 })
+
+
 
 function renderInterview() {
     filteredSection.innerHTML = '';
@@ -148,13 +149,13 @@ function renderInterview() {
                     <h2 class="company-name font-semibold text-lg">${interview.companyName}</h2>
                     <p class="role text-gray-600">${interview.role}</p>
                     <p class="type text-sm text-gray-600 my-4">${interview.type}</p>
-                    <p class="status bg-green-100 border-1 border-green-600 text-green-600 px-3 py-2 rounded inline-block font-medium text-sm">INTERVIEW</p>
+                    <p class="status bg-sky-100 px-3 py-2 rounded inline-block font-medium text-sm">${interview.status}</p>
                     <p class="note text-gray-700 mt-1 mb-4">${interview.note}</p>
                     <div class="flex gap-2">
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
+                            class="interview-btn bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
+                            class="rejection-btn bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
                     </div>
                 </div>
 
@@ -178,13 +179,13 @@ function renderReject() {
                     <h2 class="company-name font-semibold text-lg">${reject.companyName}</h2>
                     <p class="role text-gray-600">${reject.role}</p>
                     <p class="type text-sm text-gray-600 my-4">${reject.type}</p>
-                    <p class="status bg-red-100 border-1 border-red-600 text-red-600 px-3 py-2 rounded inline-block font-medium text-sm">REJECTED</p>
+                    <p class="status bg-sky-100 px-3 py-2 rounded inline-block font-medium text-sm">${reject.status}</p>
                     <p class="note text-gray-700 mt-1 mb-4">${reject.note}</p>
                     <div class="flex gap-2">
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
+                            class="interview-btn bg-white px-3 py-2 font-semibold text-sm rounded text-green-600 border-1 border-green-600 cursor-pointer hover:bg-green-600 hover:text-white active:scale-95">INTERVIEW</button>
                         <button
-                            class="bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
+                            class="rejection-btn bg-white px-3 py-2 font-semibold text-sm rounded text-red-600 border-1 border-red-600 cursor-pointer hover:bg-red-600 hover:text-white active:scale-95">REJECTED</button>
                     </div>
                 </div>
 
