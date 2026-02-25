@@ -1,4 +1,3 @@
-const { createElement } = require("react");
 
 let interviewList = [];
 let rejectionList = [];
