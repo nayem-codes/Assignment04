@@ -1,4 +1,3 @@
-
 let interviewList = [];
 let rejectionList = [];
 let currentStatus = 'all';
@@ -188,7 +187,7 @@ function renderList(list, status) {
                 </div>
             </div>
             <div class="right">
-                <button class="border-gray-300 border-1 p-1 rounded-full cursor-pointer active:scale-95 delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                <button class="border-gray-300 border-1 p-1 rounded-full cursor-pointer active:scale-95 delete-btn"><i class="fa-regular fa-trash-can pointer-events-none"></i></button>
             </div>
     `
         filteredSection.appendChild(section);
@@ -294,4 +293,3 @@ cardsContainer.addEventListener('click', function (event) {
         checkEmpty();
     }
 })
-
